@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.aks</groupId>
+		<groupId>com.github.akemalsaglam</groupId>
 		<artifactId>base-project</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -14,18 +14,21 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>easy-checkn</name>
 	<description>Demo project for Spring Boot</description>
+	<packaging>jar</packaging>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<groupId>com.github.akemalsaglam</groupId>
+			<artifactId>commons</artifactId>
+			<version>4c296ed1e0</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -37,6 +40,12 @@
 		</plugins>
 	</build>
 	<repositories>
+
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+
 		<repository>
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
@@ -53,15 +62,9 @@
 				<enabled>false</enabled>
 			</releases>
 		</repository>
-		<repository>
-			<id>base-project</id>
-			<url>https://raw.github.com/akemalsaglam/base-project/mvn-repo/</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
+
 	</repositories>
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>spring-milestones</id>
