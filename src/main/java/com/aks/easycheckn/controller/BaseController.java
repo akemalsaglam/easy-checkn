@@ -1,13 +1,21 @@
 package com.aks.easycheckn.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class BaseController {
+import org.springframework.web.bind.annotation.RequestBody;
 
-    @GetMapping("/test")
-    public String test() {
-        return "Hello world!";
-    }
+import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.Optional;
+
+public interface BaseController<RequestModel, ResponseModel, ID> {
+
+    Optional<ResponseModel> getById(ID id);
+
+    List<ResponseModel> getAll();
+
+    Optional<ResponseModel> update(@NotNull RequestModel requestModel);
+
+    Optional<ResponseModel> insert(@NotNull RequestModel requestModel);
+
+    void deleteById(ID id);
 }
