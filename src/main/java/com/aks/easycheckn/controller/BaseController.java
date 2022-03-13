@@ -1,21 +1,22 @@
 package com.aks.easycheckn.controller;
 
 
-import org.springframework.web.bind.annotation.RequestBody;
-
-import javax.validation.constraints.NotNull;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-public interface BaseController<RequestModel, ResponseModel, ID> {
+public interface BaseController<
+        Request extends BaseRequest,
+        Response extends BaseResponse,
+        ID> {
 
-    Optional<ResponseModel> getById(ID id);
+    Optional<Response> update(@Valid Request requestModel);
 
-    List<ResponseModel> getAll();
+    Optional<Response> insert(@Valid Request requestModel);
 
-    Optional<ResponseModel> update(@NotNull RequestModel requestModel);
+    Optional<Response> getById(@Valid ID id);
 
-    Optional<ResponseModel> insert(@NotNull RequestModel requestModel);
+    List<Response> getAll();
 
     void deleteById(ID id);
 }

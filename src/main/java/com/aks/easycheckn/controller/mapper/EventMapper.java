@@ -4,15 +4,14 @@ import com.aks.easycheckn.controller.request.EventRequest;
 import com.aks.easycheckn.controller.response.EventResponse;
 import com.aks.easycheckn.repository.model.EventEntity;
 import org.mapstruct.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
+import org.mapstruct.factory.Mappers;
 
 import java.util.List;
-import java.util.Optional;
 
 @Mapper
 public interface EventMapper {
+
+    EventMapper INSTANCE = Mappers.getMapper(EventMapper.class);
 
     @Mappings({
             @Mapping(target = "id", source = "entity.id"),
@@ -25,8 +24,9 @@ public interface EventMapper {
     @Named("mapEntityToResponse")
     EventResponse mapEntityToResponse(EventEntity entity);
 
-    /*@IterableMapping(qualifiedByName = "mapEntityToResponse")
-    List<EventResponse> mapEntityListToResponseList(List<EventEntity> entity);*/
+    @IterableMapping(qualifiedByName = "mapEntityToResponse")
+    @Named("mapEntityListToResponseList")
+    List<EventResponse> mapEntityListToResponseList(List<EventEntity> entity);
 
     @Mappings({
             @Mapping(target = "id", source = "request.id"),
@@ -39,6 +39,7 @@ public interface EventMapper {
     @Named("mapRequestToEntity")
     EventEntity mapRequestToEntity(EventRequest request);
 
-   /* @IterableMapping(qualifiedByName = "mapRequestToEntity")
-    List<EventEntity> mapRequestListToEntitylist(List<EventRequest> request);*/
+    @IterableMapping(qualifiedByName = "mapRequestToEntity")
+    @Named("mapRequestListToEntitylist")
+    List<EventEntity> mapRequestListToEntitylist(List<EventRequest> request);
 }
