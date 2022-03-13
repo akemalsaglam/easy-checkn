@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface EventMapper {
+public interface EventMapper extends BaseMapper<EventEntity, EventRequest, EventResponse>{
 
     EventMapper INSTANCE = Mappers.getMapper(EventMapper.class);
 

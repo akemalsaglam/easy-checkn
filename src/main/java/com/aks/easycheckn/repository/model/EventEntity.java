@@ -34,6 +34,5 @@ public class EventEntity {
     private String addressDescription;
 
     @NotNull
-    @NotBlank(message = "PlannedTime is mandatory")
     private Timestamp plannedTime;
 }

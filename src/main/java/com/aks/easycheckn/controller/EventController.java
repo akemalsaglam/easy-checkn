@@ -5,10 +5,8 @@ import com.aks.easycheckn.controller.request.EventRequest;
 import com.aks.easycheckn.controller.response.EventResponse;
 import com.aks.easycheckn.repository.model.EventEntity;
 import com.aks.easycheckn.service.EventService;
-import org.springframework.http.HttpStatus;
-import org.springframework.validation.FieldError;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -17,61 +15,43 @@ import java.util.*;
 @Validated
 @RestController
 @RequestMapping(path = "/event")
-public class EventController implements BaseController<EventRequest, EventResponse, UUID> {
+public class EventController extends AbstractController<EventEntity, EventRequest, EventResponse, UUID> {
 
-    private final EventService eventService;
-
+    @Autowired
     public EventController(EventService eventService) {
-        this.eventService = eventService;
+        super(eventService, EventMapper.INSTANCE);
     }
 
     @Override
     @GetMapping("/{id}")
-    public Optional<EventResponse> getById(@Valid @PathVariable UUID id) {
-        final Optional<EventEntity> eventEntity = eventService.findById(id);
-        return eventEntity.map(EventMapper.INSTANCE::mapEntityToResponse);
+    public Optional<EventResponse> getById(@PathVariable UUID id) {
+        return super.getById(id);
     }
 
     @Override
     @GetMapping("/")
     public List<EventResponse> getAll() {
-        return EventMapper.INSTANCE.mapEntityListToResponseList(eventService.findAll());
+        return super.getAll();
     }
 
     @Override
     @PutMapping("/")
     public Optional<EventResponse> update(@RequestBody EventRequest eventRequest) {
-        EventEntity eventEntity = EventMapper.INSTANCE.mapRequestToEntity(eventRequest);
-        final EventEntity updatedEventEntity = eventService.save(eventEntity);
-        return Optional.ofNullable(EventMapper.INSTANCE.mapEntityToResponse(updatedEventEntity));
+        return super.update(eventRequest);
     }
 
     @Override
     @PostMapping("/")
-    public Optional<EventResponse> insert(@Valid @RequestBody EventRequest eventRequest) {
-        EventEntity eventEntity = EventMapper.INSTANCE.mapRequestToEntity(eventRequest);
-        final EventEntity insertedEventEntity = eventService.save(eventEntity);
-        return Optional.ofNullable(EventMapper.INSTANCE.mapEntityToResponse(insertedEventEntity));
+    public Optional<EventResponse> insert(@RequestBody EventRequest eventRequest) {
+        return super.insert(eventRequest);
     }
 
     @Override
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable UUID id) {
-        eventService.deleteById(id);
+        super.deleteById(id);
     }
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Map<String, String> handleValidationExceptions(
-            MethodArgumentNotValidException ex) {
-        Map<String, String> errors = new HashMap<>();
-        ex.getBindingResult().getAllErrors().forEach(error -> {
-            String fieldName = ((FieldError) error).getField();
-            String errorMessage = error.getDefaultMessage();
-            errors.put(fieldName, errorMessage);
-        });
-        return errors;
-    }
 }
 
 
