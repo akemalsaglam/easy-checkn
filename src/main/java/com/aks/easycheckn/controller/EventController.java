@@ -1,5 +1,6 @@
 package com.aks.easycheckn.controller;
 
+import com.aks.commons.controller.AbstractController;
 import com.aks.easycheckn.controller.mapper.EventMapper;
 import com.aks.easycheckn.controller.request.EventRequest;
 import com.aks.easycheckn.controller.response.EventResponse;
@@ -9,8 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Validated
 @RestController

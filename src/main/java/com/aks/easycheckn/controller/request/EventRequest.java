@@ -1,9 +1,7 @@
 package com.aks.easycheckn.controller.request;
 
-import com.aks.easycheckn.controller.BaseRequest;
-import lombok.AllArgsConstructor;
+import com.aks.commons.controller.BaseRequest;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

@@ -1,5 +1,6 @@
 package com.aks.easycheckn.controller.mapper;
 
+import com.aks.commons.mapper.BaseMapper;
 import com.aks.easycheckn.controller.request.EventRequest;
 import com.aks.easycheckn.controller.response.EventResponse;
 import com.aks.easycheckn.repository.model.EventEntity;
@@ -9,7 +10,7 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface EventMapper extends BaseMapper<EventEntity, EventRequest, EventResponse>{
+public interface EventMapper extends BaseMapper<EventEntity, EventRequest, EventResponse> {
 
     EventMapper INSTANCE = Mappers.getMapper(EventMapper.class);
 

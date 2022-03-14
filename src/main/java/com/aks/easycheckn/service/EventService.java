@@ -1,7 +1,8 @@
 package com.aks.easycheckn.service;
 
-import com.aks.easycheckn.repository.model.EventEntity;
+import com.aks.commons.service.BaseService;
 import com.aks.easycheckn.repository.EventRepository;
+import com.aks.easycheckn.repository.model.EventEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

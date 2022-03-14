@@ -1,6 +1,6 @@
 package com.aks.easycheckn.controller.response;
 
-import com.aks.easycheckn.controller.BaseResponse;
+import com.aks.commons.controller.BaseResponse;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
