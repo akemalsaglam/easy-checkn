@@ -4,7 +4,7 @@ import com.aks.commons.controller.BaseResponse;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.sql.Timestamp;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @EqualsAndHashCode(callSuper = true)
@@ -16,6 +16,7 @@ public class EventResponse extends BaseResponse {
     private String description;
     private String addressTitle;
     private String addressDescription;
-    private Timestamp plannedTime;
+    private ZonedDateTime startTime;
+    private ZonedDateTime endTime;
 
 }

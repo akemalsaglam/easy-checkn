@@ -1,9 +1,11 @@
 type Event {
-    id: UUID!
-    title: String!
+    id: UUID
+    title: String
     description: String
     addressTitle: String
-    addressDescription: String!
+    addressDescription: String
+    startTime: DateTime
+    endTime: DateTime
 }
 
 input EventCreate {
@@ -11,7 +13,8 @@ input EventCreate {
     description: String
     addressTitle: String
     addressDescription: String!
-    plannedTime: String
+    startTime: DateTime
+    endTime: DateTime
 }
 
 input EventUpdate {
@@ -20,14 +23,19 @@ input EventUpdate {
     description: String
     addressTitle: String
     addressDescription: String!
-    plannedTime: String
+    startTime: DateTime
+    endTime: DateTime
 }
 
 # Root
 type Query {
     getEvents: [Event]
-    #getEvent(id: String!): Event
+    getEvent(id: UUID!): Event
 }
+
 # Root
-#type Mutation {
-#}
+type Mutation {
+    createEvent(input: EventCreate!): Event
+    updateEvent(input: EventUpdate!):Event
+    deleteEvent(id: UUID!): Boolean!
+}

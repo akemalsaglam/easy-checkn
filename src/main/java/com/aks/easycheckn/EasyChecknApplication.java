@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Import;
 @Import(GraphQLScalars.class)
 public class EasyChecknApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EasyChecknApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(EasyChecknApplication.class, args);
+    }
 
 }

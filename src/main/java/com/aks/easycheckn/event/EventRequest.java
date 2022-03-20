@@ -5,7 +5,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Data
@@ -26,6 +26,9 @@ public class EventRequest extends BaseRequest {
     private String addressDescription;
 
     @NotNull
-    private Timestamp plannedTime;
+    private ZonedDateTime startTime;
+
+    @NotNull
+    private ZonedDateTime endTime;
 
 }
