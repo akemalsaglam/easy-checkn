@@ -1,9 +1,6 @@
-package com.aks.easycheckn.controller.mapper;
+package com.aks.easycheckn.event;
 
 import com.aks.commons.mapper.BaseMapper;
-import com.aks.easycheckn.controller.request.EventRequest;
-import com.aks.easycheckn.controller.response.EventResponse;
-import com.aks.easycheckn.repository.model.EventEntity;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 

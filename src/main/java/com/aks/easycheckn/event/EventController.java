@@ -1,11 +1,6 @@
-package com.aks.easycheckn.controller;
+package com.aks.easycheckn.event;
 
 import com.aks.commons.controller.AbstractController;
-import com.aks.easycheckn.controller.mapper.EventMapper;
-import com.aks.easycheckn.controller.request.EventRequest;
-import com.aks.easycheckn.controller.response.EventResponse;
-import com.aks.easycheckn.repository.model.EventEntity;
-import com.aks.easycheckn.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

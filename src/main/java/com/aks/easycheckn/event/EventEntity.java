@@ -1,4 +1,4 @@
-package com.aks.easycheckn.repository.model;
+package com.aks.easycheckn.event;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

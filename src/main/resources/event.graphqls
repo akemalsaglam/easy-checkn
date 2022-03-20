@@ -1,0 +1,33 @@
+type Event {
+    id: Int!
+    title: String!
+    description: String
+    addressTitle: String
+    addressDescription: String!
+}
+
+input EventCreate {
+    title: String!
+    description: String
+    addressTitle: String
+    addressDescription: String!
+    plannedTime: String
+}
+
+input EventUpdate {
+    id: Int!
+    title: String!
+    description: String
+    addressTitle: String
+    addressDescription: String!
+    plannedTime: String
+}
+
+# Root
+type Query {
+    getEvents: [Event]
+    #getEvent(id: String!): Event
+}
+# Root
+#type Mutation {
+#}

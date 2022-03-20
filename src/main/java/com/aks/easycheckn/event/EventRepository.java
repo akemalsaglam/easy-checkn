@@ -1,6 +1,5 @@
-package com.aks.easycheckn.repository;
+package com.aks.easycheckn.event;
 
-import com.aks.easycheckn.repository.model.EventEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

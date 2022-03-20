@@ -1,4 +1,4 @@
-package com.aks.easycheckn.controller.request;
+package com.aks.easycheckn.event;
 
 import com.aks.commons.controller.BaseRequest;
 import lombok.Data;
