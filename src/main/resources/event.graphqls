@@ -1,5 +1,5 @@
 type Event {
-    id: Int!
+    id: UUID!
     title: String!
     description: String
     addressTitle: String
@@ -15,7 +15,7 @@ input EventCreate {
 }
 
 input EventUpdate {
-    id: Int!
+    id: UUID!
     title: String!
     description: String
     addressTitle: String
